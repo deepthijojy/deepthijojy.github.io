@@ -4,6 +4,6 @@ VizTech1
 Homework 01-10
 <html>
 <body>
-<a href:"homework/01-10">Click Here</a>
+<a href:"homework/01-10/indexh1.html">Click Here</a>
 </body>
 </html>
