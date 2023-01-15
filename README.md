@@ -1,2 +1,2 @@
 # deepthijojy.github.io
-VizTech1
+Vis Tech 1
