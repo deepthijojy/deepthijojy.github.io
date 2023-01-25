@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <h2 style="font-family: helvetica;">Assignment 2: Javascript</h2>
+
+        <!-- this is a script file -->
+        <script>
+            var num = 10;
+            var name = "ARTG";
+
+            // Print command: displaying or printing the value of num or name
+            console.log(name)
+
+            // arithmetic operations
+            var addition = num + 10;
+
+            num = num + 10;
+            console.log(num);
+
+            // arithmetic operations within your log or return function
+            console.log(num + 10);
+
+            // Concentartion of strings of symbols
+            var name= "ARTG"
+
+            console.log(name + " 5330");
+
+            // boolean values: true or false, yes or no, 1 or 0
+
+            // lets check if num is bigger thar another value
+            var isBigger = num < 100;
+
+            console.log(isBigger);
+
+            // increment operator
+            var i = 1;
+            i--; 
+            // shortcut for increasing value by one
+
+            console.log(i);
+
+            // Initialzes an array called users which has 4 items
+            // array data types are 0-indexed
+            var users= ["Northeastern", 10, "ARTG 5330", 100];
+
+            console.log(users[0]);
+
+            // add an object with new values
+            // this object contains of key/value pairs
+            var newObject = {
+                name: "Hastings Building",
+                color: "Green",
+                street: "Hungtington Avenue",
+                zipcode: 53319,
+                greetings: function(name) {
+                    console.log("Hey" + name + "!")
+                }
+            }
+
+            console.log(newObject.zipcode);
+            console.log(newObject.color);
+            console.log(newObject.greetings(" Alex"))
+
+            // different types of functions
+
+            // a function without an input variable
+            var printHello = function(){
+                console.log("Hello, world!");
+            }
+
+            printHello();
+
+            // a function without a string input
+            var printName = function(name){
+                console.log("Hello + name");
+            }
+
+            printName("Sir");
+
+            // a function with numerical return value
+            var addValues= function(val1, val2){
+                let sum= val1 + val2;
+                // return their sum
+                return sum;
+            }
+
+            var mySum = addValues(10, 10);
+
+            console.log(mySum);
+
+            var expValues = function(val) {
+                // Exponentiates given value using 2
+                let exp = val**2
+                // return their sum
+                return exp;
+            }
+
+           console.log(expValues(10));
+           console.log(expValues(4-1))
+           console.log(expValues(25-2))
+
+        //    conditional statements are if/elese statements
+        var condVal = 12;
+        if (condVal <= 10) {
+            console.log("this is no so bad.");
+        } else if (condVal == 15) {
+                console.log("this is bad.");
+            } else {
+                console.log("whatever.")
+            }
+        
+            // combine functions with conditional statements
+            var grthan10 = function(val) {
+
+                if (val > 10) {
+                    console.log("Yes!");
+                } else if (val == 10) {
+                    console.log("no!");
+                } else {
+                    val++;
+                }
+
+                console.log(val);
+                return val;
+            }
+
+            var checker = grthan10(100);
+            console.log(checker);
+
+            // sqrt() with integer number
+          let num1 = Math.sqrt(16);
+          console.log(num1);
+
+        //   sqrt() with negative argument
+        let num2 = Math.sqrt(-32);
+        console.log(num2);
+
+        // cw for q1
+        var sqroot = function(val) {
+            if (isNaN(val)) {
+                return "not a number";
+            } else {
+                return Math.sqrt(val);
+            }
+        } 
+        
+        console.log(sqroot(16));
+
+
+
+        </script>
+
+    </head>
+</html>
