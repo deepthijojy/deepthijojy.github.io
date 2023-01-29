@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<header>
+    <h4 style="font-family:helvetica;">Homework 3: 01-24</h4>
+</header>
+
+<!-- setting classes for the accordion -->
+<head>
+<style>
+    .accordion {
+        background-color: #f5f5f5;
+        color: #222222;   
+        padding: 16px;
+        width: 100%;
+         border: none;
+         text-align: left;
+         outline: none;
+         font-size: 16px;
+         transition: 0.4s;
+    }
+    .active, .accordion:hover {
+        background-color: #c6c6c6;
+    }
+    .accordion:after {
+        content: '\002B';
+        color: #777;
+        font-weight: bold;
+        float: right;
+        margin-left: 5px;
+    }
+    .active:after {
+        content: "\2212";
+    }
+    .panel {
+        padding: 0 16px;
+        background-color: #fafafa;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.2s ease-out;
+    }
+</style>
+</head>
+
+<!-- content for the accordions -->
+<body>
+    <h2 style="font-family:helvetica;">FAQ Page Design</h2>
+    <p style="font-family: helvetica;">
+        When you create an FAQ page, there are some key items and practices that you should maintain for the best customer experience.
+    </p>
+    <button class="accordion">🖊️ Write clear and concise pages</button>
+    <div class="panel">
+        <p style="font-family: helvetica;">
+            In terms of FAQ pages, "the more the merrier" is actually a fallacy. Too much text can end up being too confusing, causing readers to have to search for the answer they need. Rather than writing long and eloquent paragraphs, it's best to be straightforward and brief when providing answers.
+        </p>
+    </div>
+    <br>
+    <button class="accordion">🔄 Regularly update each page</button>
+    <div class="panel">
+        <p style="font-family: helvetica;">
+            Every FAQ page you have must be accurate. As your organization faces product launches and updates, your FAQ pages should reflect these changes as well. This means your team needs to consistently review each page and revise it after launching new features.
+        </p>
+    </div>
+    <br>
+    <button class="accordion">📚 Organize questions by category</button>
+    <div class="panel">
+        <p style="font-family: helvetica;">
+            What can also be tedious is listing all the questions in random order. This is especially frustrating for customers who have several related questions regarding a single topic. Thus, it's helpful if you divide up questions into overarching topics, such as products, security, and billing.
+        </p>
+    </div>
+
+    <!-- the logic to show and hide the content in the accordion -->
+    <script>
+        var component = document.getElementsByClassName("accordion");
+        var i;
+        
+        for (i = 0; i < component.length; i++) {
+          component[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            
+            var panel = this.nextElementSibling;
+            if (panel.style.maxHeight) {
+              panel.style.maxHeight = null;
+            } else {
+              panel.style.maxHeight = panel.scrollHeight + "px";
+            } 
+          });
+        }
+        </script>
+        <br>
+        <a href="https://deepthijojy.github.io">
+            <font style="font-family: helvetica;">Back to Homepage</font>
+        </a>
+</body>
+</html>
