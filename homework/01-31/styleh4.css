@@ -1,0 +1,10 @@
+div {
+    text-align: left;
+}
+
+.helText {
+    font-family: helvetica;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 600;
+}

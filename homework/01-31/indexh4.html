@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <header>
+        <h4 style="font-family:helvetica;">Homework 4: 01-31</h4>
+    </header>
+
+    <!-- linking the stylesheet -->
+    <link rel="styelsheet" href="styleh4.css">
+
+    <!-- load external JS file -->
+    <script src="/homework/01-31/myFunctions.js"></script>
+
+    <!-- load D3 JS library v7 -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+
+    <body>
+
+        <div>
+            <h2 id="Titles">Moving with Shapes</h2>
+        </div>
+
+        <!-- changing attributes of the title -->
+        <script>
+
+            var page_title = d3.select('Titles');
+
+            page_title.style("color","purple")
+            .style("font-size", "48px")
+            .style("background-color", "beige");
+
+            page_title.attr("class","helText");
+            
+        </script>
+
+
+    </body>
+</html>
