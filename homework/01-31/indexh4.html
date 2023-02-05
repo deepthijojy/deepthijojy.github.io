@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
-    <header>
+    <head>
         <h4 style="font-family:helvetica;">Homework 4: 01-31</h4>
-    </header>
 
     <!-- linking the stylesheet -->
     <link rel="styelsheet" href="styleh4.css">
@@ -12,6 +11,7 @@
 
     <!-- load D3 JS library v7 -->
     <script src="https://d3js.org/d3.v7.min.js"></script>
+    </head>
 
     <body>
 
@@ -22,16 +22,116 @@
         <!-- changing attributes of the title -->
         <script>
 
-            var page_title = d3.select('Titles');
+            var page_title = d3.select('#Titles');
 
-            page_title.style("color","purple")
-            .style("font-size", "48px")
-            .style("background-color", "beige");
+            page_title.style("color","blue")
+            .style("font-size", "40px")
+            .style("font-family", "helvetica")
+            .style("background-color", "lightblue");
 
             page_title.attr("class","helText");
             
         </script>
 
+        <div>
+            <svg width="800" height="400" id="data-viz">
+                <rect width="800" height="400" style="fill: white; stroke-width: 2; stroke: blue;"></rect>
+            </svg>
+        </div>
+
+        <div>
+            <button onclick="drawCircles(shape1)">Flower 1</button>
+            <button onclick="drawCircles(shape2)">Flower 2</button>
+            <button onclick="drawCircles(shape3)">Flower 3</button>
+        </div>
+
+        <script>
+
+            // data array 1
+            
+            var shape1 = [
+                {
+                    flower:"rose",
+                    value:12302181
+                },
+                {
+                    flower:"sunflower",
+                    value:42309638
+                }
+            ];
+
+            // data array 2
+
+            var shape2 = [
+                {
+                    flower:"lilies",
+                    value:82304519
+                },
+                {
+                    flower:"sunflower",
+                    value:52307218
+                }
+            ];
+
+            // data array 3
+
+            var shape3 = [
+                {
+                    flower:"lilies",
+                    value:92310253
+                },
+                {
+                    flower:"sunflower",
+                    value:62307182
+                },
+                {
+                    flower:"rose",
+                    value:60204612
+                }
+            ];
+
+            function drawCircles(dataArray) {
+
+            var circles = d3.select("#data-viz").selectAll("circle")
+            .data(dataArray, function(d) {
+                return d.flower;
+            });
+
+            // entering circles
+            circles.enter().append("circle")
+            .attr("fill", function(d){
+                if (d.flower == "rose") {
+                    return "red";
+                } else if (d.flower == "sunflower") {
+                    return "yellow";
+                } else if (d.flower == "lilies") {
+                    return "purple";
+                }
+            })
+            .attr("cy", "100")
+            .attr("cx", randomPosition)
+            .attr("r", "0")
+            .transition().duration(1000)
+            .attr("r", "25")
+
+            // updating circles
+            circles.transition().duration(1000)
+            .attr("cx", randomPosition);
+
+            // exiting circles
+            circles.exit()
+                .transition().duration(1000)
+                .attr("r","0")
+                .remove();
+
+            }
+
+        </script>
+        <br>
+        <br>
+        <a href="https://deepthijojy.github.io">
+            <font style="font-family: helvetica;">Back to Homepage</font>
+        </a>
 
     </body>
 </html>
