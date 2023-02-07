@@ -40,9 +40,9 @@
         </div>
 
         <div>
-            <button onclick="drawCircles(shape1)">Flower 1</button>
-            <button onclick="drawCircles(shape2)">Flower 2</button>
-            <button onclick="drawCircles(shape3)">Flower 3</button>
+            <button onclick="drawRecs(shape1)">Flower 1</button>
+            <button onclick="drawRecs(shape2)">Flower 2</button>
+            <button onclick="drawRecs(shape3)">Flower 3</button>
         </div>
 
         <script>
@@ -89,17 +89,21 @@
                     value:60204612
                 }
             ];
+            
+            // drawing rectangles
 
-            function drawCircles(dataArray) {
+            function drawRecs(dataArray) {
 
-            var circles = d3.select("#data-viz").selectAll("circle")
+            var rect = d3.select("#data-viz").selectAll("rectangles")
             .data(dataArray, function(d) {
                 return d.flower;
             });
 
-            // entering circles
-            circles.enter().append("circle")
-            .attr("fill", function(d){
+            // entering rectangles
+            rect.join(
+                function(enter) {
+                    return enter.append("rect")
+                    .attr("fill", function(d){
                 if (d.flower == "rose") {
                     return "red";
                 } else if (d.flower == "sunflower") {
@@ -108,24 +112,32 @@
                     return "purple";
                 }
             })
-            .attr("cy", "100")
-            .attr("cx", randomPosition)
-            .attr("r", "0")
+
+            .attr("x",randomPosition)
+            .attr("y",100)
+            .attr("width",0)
+            .attr("height",0)
             .transition().duration(1000)
-            .attr("r", "25")
+            .attr("height",40)
+            .attr("width",80);
+        },
+            // updating rectangles
+            function(update) {
+                return update.transition().duration(1000)
+                .attr("x", randomPosition);
+            },
+            
 
-            // updating circles
-            circles.transition().duration(1000)
-            .attr("cx", randomPosition);
-
-            // exiting circles
-            circles.exit()
-                .transition().duration(1000)
-                .attr("r","0")
+            // exiting rectangles
+            function(exit) {
+                exit.transition().duration(1000)
+                .attr("width",0)
+                .attr("height",0)
                 .remove();
 
             }
-
+            )
+        }
         </script>
         <br>
         <br>
