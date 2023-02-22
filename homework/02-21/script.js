@@ -5,15 +5,15 @@ function parseLOG(d) {
 }
 
 // load the csv file and print its contents
-// d3.csv("/homework/02-21/dataset/Remote working survey_2021.csv").then(parseLOG);
+// d3.csv("/homework/02-21/dataset/Remote work2021.csv").then(parseLOG);
 
-d3.csv("/homework/02-21/dataset/Remote working survey_2021.csv").then(function(data) {
+d3.csv("/homework/02-21/dataset/Remote work2021.csv").then(function(data) {
 
     console.log(data);
 
     let filtered_data = data.filter(function(d) {
 
-            return d.Myemployersremoteworkingpolicysuitsme === "1";
+            return d.Industry === "Other Services";
     
         })
     
@@ -23,7 +23,7 @@ d3.csv("/homework/02-21/dataset/Remote working survey_2021.csv").then(function(d
 
     let grouped_data = d3.group(data, function(d) {
 
-        return d.Myemployersremoteworkingpolicysuitsme;
+        return d.Industry;
  
      });
 
