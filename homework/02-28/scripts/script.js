@@ -9,7 +9,7 @@ d3.csv("./data/gapminder.csv").then(function(data) {
         .attr("height", height);
   
     let filtered_data = data.filter(function(d) {
-        return d.country === 'United States';
+        return d.country === 'Asia';
     });
   
     const lifeExp = {
@@ -45,15 +45,7 @@ d3.csv("./data/gapminder.csv").then(function(data) {
             .attr("y", function(d) { return yScale(d.gdpPercap); })
             .attr("width", xScale.bandwidth())
             .attr("height", function(d) { return height - (margin.bottom + yScale(d.gdpPercap)) })
-            .attr("fill", function(d) {
-      if (d.year >= "1952" && d.year <= "1967") {
-          return "red";
-      } else if (d.year >= "1972" && d.year <= "1987") {
-          return "blue";
-      } else {
-          return "green";
-      }
-  });
+            .attr("fill", "steelblue");
   
     const xAxisLabel = svg.append("text")
         .attr("class","axisLabel")
