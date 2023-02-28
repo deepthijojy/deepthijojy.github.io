@@ -18,8 +18,8 @@ d3.csv("/homework/02-28/data/gapminder.csv").then(function(data) {
     // define min and max in your data
     
         const lifeExp = {
-            min: d3.min(filtered_data, function(d) { return +d.lifeExp; }),
-            max: d3.max(filtered_data, function(d) { return +d.lifeExp; })
+            min: d3.min(filtered_data, function(d) { return +d.gdpPercap; }),
+            max: d3.max(filtered_data, function(d) { return +d.gdpPercap; })
     
         }
     
@@ -57,9 +57,9 @@ d3.csv("/homework/02-28/data/gapminder.csv").then(function(data) {
             .enter()
             .append("rect")
                 .attr("x", function(d) { return xScale(d.year); })
-                .attr("y", function(d) { return yScale(d.lifeExp); })
+                .attr("y", function(d) { return yScale(d.gdpPercap); })
                 .attr("width", xScale.bandwidth())
-                .attr("height", function(d) { return height - (margin.bottom + yScale(d.lifeExp)); })
+                .attr("height", function(d) { return height - (margin.bottom + yScale(d.gdpPercap)); })
                 .attr("fill", "steelblue");
     
     // add axis labels
@@ -75,6 +75,6 @@ d3.csv("/homework/02-28/data/gapminder.csv").then(function(data) {
         .attr("transform","rotate(-90)")
         .attr("x", -height/2)
         .attr("y", margin.left/2)
-        .text("Life Expectancy (Years)");
+        .text("GDP");
     
     });
