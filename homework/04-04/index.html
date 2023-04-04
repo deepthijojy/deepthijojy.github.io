@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Interactive Line Chart Example</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    canvas {
+      -moz-user-select: none;
+      -webkit-user-select: none;
+      -ms-user-select: none;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="myChart"></canvas>
+  <script>
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var chart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: [
+          "Strongly disagree",
+          "Somewhat disagree",
+          "Neither agree nor disagree",
+          "Somewhat agree",
+          "Strongly agree"
+        ],
+        datasets: [
+          {
+            label: "Female",
+            backgroundColor: "pink",
+            borderColor: "red",
+            borderWidth: 1,
+            data: [132, 111, 119, 240, 183]
+          },
+          {
+            label: "Male",
+            backgroundColor: "lightblue",
+            borderColor: "blue",
+            borderWidth: 1,
+            data: [76, 89, 125, 219, 214]
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        title: {
+          display: true,
+          text: 'Agreement by Gender'
+        },
+        scales: {
+          xAxes: [{
+            display: true,
+            scaleLabel: {
+              display: true,
+              labelString: 'Agreement Level'
+            }
+          }],
+          yAxes: [{
+            display: true,
+            scaleLabel: {
+              display: true,
+              labelString: 'Number of Respondents'
+            }
+          }]
+        },
+        tooltips: {
+          mode: 'index',
+          intersect: false
+        },
+        hover: {
+          mode: 'nearest',
+          intersect: true
+        }
+      }
+    });
+  </script>
+</body>
+</html>

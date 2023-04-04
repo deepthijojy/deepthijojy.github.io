@@ -7,3 +7,17 @@ body {
     display: table-cell;
     vertical-align: middle;
 }
+
+.section {
+    display: flex;
+    padding: 20px;
+  }
+  
+  .section p {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  iframe {
+    border: 1;
+  }
