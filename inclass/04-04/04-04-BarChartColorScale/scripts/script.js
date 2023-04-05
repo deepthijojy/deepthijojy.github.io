@@ -43,7 +43,7 @@ scale.select("#scaleRect")
 // NOTE: In D3.js, the methods for loading data return a <promise> object which needs
 //       to be fullfilled first before we can use it as a dataset.
 
-const fileName = "./data/gapminder.csv";
+const fileName = "/inclass/04-04/04-04-BarChartColorScale/data/gapminder.csv";
 
 Promise.all([d3.csv(fileName)]).then(function(results){
     // Once data are loaded successfully, call the function that creates and displays the chart
@@ -145,6 +145,8 @@ function createChart(data) {
     // Note: We define this gradient stops range as [0, 1.1] in order to obtain the values:
     //                          0, 0.1, 0.2, 0.3, ..., 0.9, 1.0
     //       If we don't use 1.1, then we won't reach to 1.0 in the range. Try it with console.log().
+    // 0.1 is the step of increase--for eg. 0.0 to 1.1, 0.0 to 1.1 +0.1,.... and so forth
+    
     var gradientStopsData = d3.range(0.0, 1.1, 0.1);
 
     /**
