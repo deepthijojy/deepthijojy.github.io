@@ -10,18 +10,18 @@ const svg = d3.select("#chart")
 // Output: Promise object
 //          .then() callback function to actually turn it into JSON structure
 
-let fileName = "data/films.json";
+let fileName = "/inclass/04-11/D3HierarchLayouts_TEMPLATE/data/films.json";
 
 d3.json(fileName).then(function(results){
 
     // Once the data is loaded, everything happens inside the createHierarchy() function
-    createHierarchicalLayout(results);
+    createHierarchy(results);
 
 });
 
 //
 
-function createHierarchicalLayout(data) {
+function createHierarchy(data) {
 
     /**
      *  The following lines of code handle the ABSTRACT DATA STRUCTURE
@@ -33,6 +33,8 @@ function createHierarchicalLayout(data) {
                                  function(d) { return d.Genre; }
                                 //  function(d) { return d.Rating; }
     );
+
+    // console.log(groups);
 
     let root = d3.hierarchy(groups);
 
@@ -50,6 +52,11 @@ function createHierarchicalLayout(data) {
      *  The following lines of code handle HIERARCHICAL LAYOUT-SPECIFIC methods.
      */
 
+    let treeLayout = d3.tree()
+    .size([width, height - 50]);
+    
+    treeLayout(root);
+
     // TO DO
 
     /**
@@ -57,5 +64,53 @@ function createHierarchicalLayout(data) {
      */
 
     // TO DO
+
+    // line of the tree
+    svg.append("g")
+        .selectAll('line')
+        .data(root.links())
+        .join('line')
+        // coordinates of start of line
+        .attr('x1', function(d) {return d.source.x;})
+        .attr('y1', function(d) {return d.source.y;})
+        .style("stroke-width", 6)
+        // coordinates of end of line
+        .attr('x2', function(d) {return d.target.x;})
+        .attr('y2', function(d) {return d.target.y;});
+
+    
+        // node of the tree, connected by the lines
+    svg.append("g")
+        .selectAll('circle')
+        .data(root.descendants())
+        .join('circle')
+            .attr('cx', function(d) {return d.x;})
+            .attr('cy', function(d) {return d.y;})
+            .attr('r', 8);
+
+        // add text for nodes/circles
+        svg.append("g")
+        // .selectAll('text.label')
+        .data(root.descendants())
+        .classed('label', true)
+        .join('text')
+            .attr('x', function(d) {return d.x;})
+            .attr('y', function(d) {return d.y - 15;})
+            .text(function(d) {
+                return d.data[0];
+        });
+
+        // count labels
+        svg.append("g")
+        .selectAll("text.count-label")
+        .data(root.descendants())
+        .classed("count-label", true)
+        .join("text")
+            .attr('x', function(d) {return d.x;})
+            .attr('y', function(d) {return d.y + 40;})
+            .text(function(d) {
+                if (d.height > 0) return '';
+                return d.data[1];
+        });
 
 }
