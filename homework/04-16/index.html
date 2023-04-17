@@ -2,10 +2,19 @@
 <html>
   <head>
     <title>Interactive Pie Chart</title>
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+      html {
+        width: 50%;
+        height: 50%;
+      }
+  </style>
+
   </head>
   <body>
-    <canvas id="myChart" width="50%" height="50%"></canvas>
+    <canvas id="myChart"></canvas>
     <script>
       var ctx = document.getElementById("myChart").getContext("2d");
       var myChart = new Chart(ctx, {
