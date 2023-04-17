@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Interactive Pie Chart</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <canvas id="myPieChart" style="width: 50%; height: 50%;"></canvas>
+    <br>
+    <table>
+      <tr>
+        <td style="background-color: pink; padding: 8px;"></td>
+        <td>Female</td>
+        <td style="background-color: lightblue; padding: 8px;"></td>
+        <td>Male</td>
+      </tr>
+      <tr>
+        <td style="padding: 8px;">Strongly disagree</td>
+        <td style="padding: 8px;">Somewhat disagree</td>
+        <td style="padding: 8px;">Neither agree nor disagree</td>
+        <td style="padding: 8px;">Somewhat agree</td>
+        <td style="padding: 8px;">Strongly agree</td>
+      </tr>
+    </table>
+
+    <script>
+        var ctx = document.getElementById('myPieChart').getContext('2d');
+        var myPieChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: [
+                    "Strongly disagree",
+                    "Somewhat disagree",
+                    "Neither agree nor disagree",
+                    "Somewhat agree",
+                    "Strongly agree"
+                ],
+                datasets: [
+                    {
+                        backgroundColor: ["pink", "pink", "pink", "pink", "pink"],
+                        borderColor: "red",
+                        borderWidth: 1,
+                        data: [60, 62, 130, 269, 264],
+                        label: "Female"
+                    },
+                    {
+                        backgroundColor: ["lightblue", "lightblue", "lightblue", "lightblue", "lightblue"],
+                        borderColor: "blue",
+                        borderWidth: 1,
+                        data: [27, 51, 146, 239, 260],
+                        label: "Male"
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                legend: {
+                    display: true,
+                    labels: {
+                        fontColor: "black",
+                        fontSize: 14,
+                        usePointStyle: true,
+                        boxWidth: 10
+                    }
+                },
+                title: {
+                    display: true,
+                    text: 'Agreement with Statement by Gender',
+                    fontSize: 18
+                }
+            }
+        });
+    </script>
+</body>
+</html>
