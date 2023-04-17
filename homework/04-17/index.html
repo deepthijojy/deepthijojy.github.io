@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Interactive Bubble Chart Example</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <canvas id="bubble-chart"></canvas>
+    <script>
+      var ctx = document.getElementById('bubble-chart').getContext('2d');
+      var myChart = new Chart(ctx, {
+        type: 'bubble',
+        data: {
+          labels: [
+            "Strongly disagree",
+            "Somewhat disagree",
+            "Neither agree nor disagree",
+            "Somewhat agree",
+            "Strongly agree"
+          ],
+          datasets: [
+            {
+              label: "Female",
+              backgroundColor: ["#FFC3D7", "#FFACC8", "#FF8FB5", "#F475A0", "#E05182"],
+              borderColor: "red",
+              borderWidth: 1,
+              data: [
+                { x: 1, y: 115, r: 10 },
+                { x: 2, y: 87, r: 10 },
+                { x: 3, y: 97, r: 10 },
+                { x: 4, y: 254, r: 10 },
+                { x: 5, y: 232, r: 10 }
+              ]
+            },
+            {
+              label: "Male",
+              backgroundColor: ["#A6F0F0", "#75E7E7", "#76D8D8", "#50C9C9", "#4EB7B7"],
+              borderColor: "blue",
+              borderWidth: 1,
+              data: [
+                { x: 1, y: 66, r: 10 },
+                { x: 2, y: 67, r: 10 },
+                { x: 3, y: 111, r: 10 },
+                { x: 4, y: 223, r: 10 },
+                { x: 5, y: 256, r: 10 }
+              ]
+            }
+          ]
+        },
+        options: {
+          scales: {
+            x: {
+              ticks: {
+                stepSize: 1,
+                callback: function(value, index, values) {
+                  switch (value) {
+                    case 1:
+                      return "Strongly disagree";
+                    case 2:
+                      return "Somewhat disagree";
+                    case 3:
+                      return "Neither agree nor disagree";
+                    case 4:
+                      return "Somewhat agree";
+                    case 5:
+                      return "Strongly agree";
+                  }
+                }
+              }
+            }
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
