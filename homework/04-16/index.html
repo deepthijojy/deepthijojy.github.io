@@ -1,75 +1,63 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>Interactive Pie Chart</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-</head>
-<body>
-    <canvas id="myPieChart" style="width: 50%; height: 50%;"></canvas>
-    <br>
-    <table>
-      <tr>
-        <td style="background-color: pink; padding: 8px;"></td>
-        <td>Female</td>
-        <td style="background-color: lightblue; padding: 8px;"></td>
-        <td>Male</td>
-      </tr>
-      <tr>
-        <td style="padding: 8px;">Strongly disagree</td>
-        <td style="padding: 8px;">Somewhat disagree</td>
-        <td style="padding: 8px;">Neither agree nor disagree</td>
-        <td style="padding: 8px;">Somewhat agree</td>
-        <td style="padding: 8px;">Strongly agree</td>
-      </tr>
-    </table>
-
+  </head>
+  <body>
+    <canvas id="myChart" width="50%" height="50%"></canvas>
     <script>
-        var ctx = document.getElementById('myPieChart').getContext('2d');
-        var myPieChart = new Chart(ctx, {
-            type: 'pie',
-            data: {
-                labels: [
-                    "Strongly disagree",
-                    "Somewhat disagree",
-                    "Neither agree nor disagree",
-                    "Somewhat agree",
-                    "Strongly agree"
-                ],
-                datasets: [
-                    {
-                        backgroundColor: ["pink", "pink", "pink", "pink", "pink"],
-                        borderColor: "red",
-                        borderWidth: 1,
-                        data: [60, 62, 130, 269, 264],
-                        label: "Female"
-                    },
-                    {
-                        backgroundColor: ["lightblue", "lightblue", "lightblue", "lightblue", "lightblue"],
-                        borderColor: "blue",
-                        borderWidth: 1,
-                        data: [27, 51, 146, 239, 260],
-                        label: "Male"
-                    }
-                ]
+      var ctx = document.getElementById("myChart").getContext("2d");
+      var myChart = new Chart(ctx, {
+        type: "pie",
+        data: {
+          labels: [
+            "Strongly disagree",
+            "Somewhat disagree",
+            "Neither agree nor disagree",
+            "Somewhat agree",
+            "Strongly agree"
+          ],
+          datasets: [
+            {
+              label: "Female",
+              backgroundColor: [
+                "#FFC3D7",
+                "#FFACC8",
+                "#FF8FB5",
+                "#F475A0",
+                "#E05182"
+              ],
+              borderColor: "red",
+              borderWidth: 0,
+              data: [63, 77, 140, 279, 226]
             },
-            options: {
-                responsive: true,
-                legend: {
-                    display: true,
-                    labels: {
-                        fontColor: "black",
-                        fontSize: 14,
-                        usePointStyle: true,
-                        boxWidth: 10
-                    }
-                },
-                title: {
-                    display: true,
-                    text: 'Agreement with Statement by Gender',
-                    fontSize: 18
-                }
+            {
+              label: "Male",
+              backgroundColor: [
+                "#A6F0F0",
+                "#75E7E7",
+                "#76D8D8",
+                "#50C9C9",
+                "#4EB7B7"
+              ],
+              borderColor: "blue",
+              borderWidth: 0,
+              data: [53, 57, 136, 246, 231]
             }
-        });
+          ]
+        },
+        options: {
+          responsive: true,
+          legend: {
+            position: "bottom",
+            labels: {
+              boxWidth: 15,
+              padding: 15
+            }
+          }
+        }
+      });
     </script>
-</body>
+  </body>
 </html>
