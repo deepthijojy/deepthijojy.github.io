@@ -1,6 +1,6 @@
-Project Title: Women benefit less than Men from an Employer’s Remote Working Policy during 2021 in Australia
+Project Title: [Women benefit less than Men from an Employer’s Remote Working Policy during 2021 in Australia](https://deepthijojy.github.io/remotework/experimentation/expindex.html)
 <br>
-Project Area: [Work From Home and their policies](https://deepthijojy.github.io/remotework/experimentation/expindex.html)
+Project Area: Work From Home and their policies
 <br>
 Name: Deepthi Jojy
 <br>
